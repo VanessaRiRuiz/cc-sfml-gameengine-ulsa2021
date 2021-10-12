@@ -28,7 +28,7 @@ float height, int col, int row, float moveSpeed, sf::RenderWindow*& window, b2Wo
   sprite->setPosition(position);
   sprite->setScale(sf::Vector2f(scale, scale));
   sprite->setColor(sf::Color::White);
-  sprite->setOrigin(sprite->getLocalBounds().width / 2.f, sprite->getLocalBounds().height / 2.f);
+  sprite->setOrigin(width / 2, height / 2);
 
   idleAnim = new Animation(0.05f, 5, 0, 5, 16, 16, sprite);
   runAnim = new Animation(0.08f, 6, 0, 5, 16, 16, sprite);
