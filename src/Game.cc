@@ -1,9 +1,12 @@
 #include "CommonHeaders.hh"
 #include "Character.hh"
+#include "Candle.hh"
 
 sf::RectangleShape* rectangle{new sf::RectangleShape(sf::Vector2f(100.f, 100.f))};
 Character* character1{};
 GameObject* chest1{};
+Candle* candle{};
+Animation* candleIdle{};
 TextAsset* text1{};
 
 Game::Game()
@@ -21,12 +24,15 @@ Game::Game()
   character1 = new Character(ASSETS_SPRITES, sf::Vector2f(100.f, 100.f), GAME_SCALE,
   16, 16, 0, 5, 200.f, window, world);
   chest1 = new GameObject(ASSETS_SPRITES, sf::Vector2(500.f, 300.f), GAME_SCALE, 16, 16, 6, 1, b2BodyType::b2_staticBody, window, world);
+  candle = new Candle(ASSETS_SPRITES, sf::Vector2(500.f, 500.f), GAME_SCALE, 16, 16, 6, 3, window, world);
 
+  //candleIdle = new Animation(0.05f, 3, 6, 11, 16, 16, drawable);
   text1 = new TextAsset(window, ASSETS_FONT, "ULSA Game Engine Sample",
   14, sf::Color::White, sf::Vector2f(50.f, 50.f));
 
   gameObjects->push_back(character1);
   gameObjects->push_back(chest1);
+  gameObjects->push_back(candle);
 }
 
 Game::~Game()
